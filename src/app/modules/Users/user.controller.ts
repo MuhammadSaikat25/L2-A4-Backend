@@ -9,6 +9,8 @@ const registerUser = catchAsync(
     try {
       res.json({
         success: true,
+        message: "User registration successful",
+        data: result,
       });
     } catch (error) {
       console.log(error);
