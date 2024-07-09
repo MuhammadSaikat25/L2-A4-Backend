@@ -8,6 +8,7 @@ const ProductsSchema = new Schema<TProducts>(
     price: { type: Number, required: true },
     quantity: { type: Number, required: true },
     categories: [{ type: String, required: true }],
+    description: { type: String, required: true },
     section: { type: String, required: true },
   },
   {

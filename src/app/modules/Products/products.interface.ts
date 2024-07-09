@@ -5,4 +5,5 @@ export interface TProducts {
   price: number;
   categories: [string];
   section: string;
+  description:string
 }

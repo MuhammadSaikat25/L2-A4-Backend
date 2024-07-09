@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Dumbbells Set",
+    "image": "https://gymsportz.sg/cdn/shop/products/48kg-premium-rubber-dumbbell-set-357755.png?v=1690730051",
+    "quantity": 50,
+    "price": 49.99,
+    "categories": ["Strength Training", "Weights"],
+    "section": "Free Weights"
+  },
+  {
+    "name": "Yoga Mat",
+    "image": "https://img.ph.my-best.com/contents/1fa13140577abf1ab0b57b5bef76406d.png?ixlib=rails-4.3.1&q=70&lossless=0&w=1200&h=900&fit=crop&s=735bbea724efa2577d3023a0ce029d32",
+    "quantity": 100,
+    "price": 19.99,
+    "categories": ["Yoga", "Stretching"],
+    "section": "Yoga & Pilates"
+  },
+  {
+    "name": "Treadmill",
+    "image": "https://www.lifefitness.com.au/wp-content/uploads/2023/12/IntegritySeries-Treadmill-D-SE3HD-Black-Standard-720x664.png.webp",
+    "quantity": 10,
+    "price": 499.99,
+    "categories": ["Cardio", "Machines"],
+    "section": "Cardio Equipment"
+  },
+  {
+    "name": "Resistance Bands",
+    "image": "https://www.thysol.co.uk/wp-content/uploads/sites/4/2020/11/thysol-training-equipment-power-bands-set-2.png",
+    "quantity": 200,
+    "price": 14.99,
+    "categories": ["Strength Training", "Accessories"],
+    "section": "Strength Accessories"
+  },
+  {
+    "name": "Kettlebell",
+    "image": "https://apus-sports.com/wp-content/uploads/2018/12/kettlebells.png",
+    "quantity": 75,
+    "price": 29.99,
+    "categories": ["Strength Training", "Weights"],
+    "section": "Free Weights"
+  },
+  {
+    "name": "Exercise Bike",
+    "image": "https://i.ebayimg.com/images/g/PTsAAOSwFFhgiUgJ/s-l500.png",
+    "quantity": 20,
+    "price": 299.99,
+    "categories": ["Cardio", "Machines"],
+    "section": "Cardio Equipment"
+  },
+  {
+    "name": "Foam Roller",
+    "image": "https://shahsports.com.bd/wp-content/uploads/2024/01/b6e12d0a104ade504a507d7fb87eaf1-removebg-preview.png",
+    "quantity": 150,
+    "price": 24.99,
+    "categories": ["Recovery", "Stretching"],
+    "section": "Recovery & Mobility"
+  },
+  {
+    "name": "Pull-Up Bar",
+    "image": "https://www.pullupbarpro.com/wp-content/uploads/2021/01/strength-training-wall-mounted-multi-grip-pull-up-bar-pro-singapore.png",
+    "quantity": 30,
+    "price": 39.99,
+    "categories": ["Strength Training", "Bodyweight"],
+    "section": "Bodyweight Equipment"
+  },
+  {
+    "name": "Jump Rope",
+    "image": "https://doperopes.com/cdn/shop/products/DopeRopes_SB_Pink_3BeadColor_20210611_02240_1024x1024@2x.png?v=1628187643",
+    "quantity": 250,
+    "price": 9.99,
+    "categories": ["Cardio", "Accessories"],
+    "section": "Cardio Accessories"
+  },
+  {
+    "name": "Medicine Ball",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbuNRicRPxxttPEh66m74uSTiIgDlYd6-9GA&s",
+    "quantity": 40,
+    "price": 34.99,
+    "categories": ["Strength Training", "Functional Training"],
+    "section": "Functional Training"
+  }
+]

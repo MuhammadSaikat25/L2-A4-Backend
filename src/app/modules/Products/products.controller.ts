@@ -15,6 +15,21 @@ const createProducts = async (req: Request, res: Response) => {
   }
 };
 
+const getSingleProduct = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  try {
+    const result = await productsService.getSingleProduct(id);
+    res.status(200).json({
+      success: true,
+      message: "Product has been found",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const productsController = {
   createProducts,
+  getSingleProduct,
 };

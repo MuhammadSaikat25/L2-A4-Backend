@@ -7,6 +7,7 @@ export const productsValidation = z.object({
     price: z.number(),
     quantity: z.number(),
     section: z.string(),
+    description: z.string(),
     categories: z.array(z.string()),
   }),
 });
