@@ -11,5 +11,5 @@ router.post(
 );
 
 router.get('/get-product/:id',productsController.getSingleProduct)
-
+router.get('/products',productsController.getAllProducts)
 export const productsRouter = router;

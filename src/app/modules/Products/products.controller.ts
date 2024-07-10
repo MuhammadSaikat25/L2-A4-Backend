@@ -29,7 +29,20 @@ const getSingleProduct = async (req: Request, res: Response) => {
   }
 };
 
+const getAllProducts = async (req: Request, res: Response) => {
+  try {
+    const result =await productsService.getAllProducts();
+    res.status(200).json({
+      success: true,
+      message: "Products has been found",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const productsController = {
   createProducts,
   getSingleProduct,
+  getAllProducts
 };

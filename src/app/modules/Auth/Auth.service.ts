@@ -21,7 +21,7 @@ const login = async (playLoad: { email: string; password: string }) => {
     id: isUserExist._id,
   };
   const token = jwt.sign(jwtObj, config.JWT!, { expiresIn: "10d" });
-  return token
+  return token;
 };
 
 export const authService = {
