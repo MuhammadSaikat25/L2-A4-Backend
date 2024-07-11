@@ -6,8 +6,8 @@ const getAllCategories=async()=>{
     return result
 }
 
-const getSingleCategories=async(id:string)=>{
-    const result=await CategoriesModel.findById(id)
+const getSingleCategories=async(name:string)=>{
+    const result=await CategoriesModel.findOne({name})
     return result
 }
 export const categoriesService={

@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, RequestHandler, Response } from "express";
 import { productsService } from "./products.service";
 
 const createProducts = async (req: Request, res: Response) => {
@@ -31,7 +31,7 @@ const getSingleProduct = async (req: Request, res: Response) => {
 
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    const result =await productsService.getAllProducts();
+    const result = await productsService.getAllProducts();
     res.status(200).json({
       success: true,
       message: "Products has been found",
@@ -41,8 +41,37 @@ const getAllProducts = async (req: Request, res: Response) => {
     console.log(error);
   }
 };
+
+const getRelatedProducts: RequestHandler = async (req, res) => {
+  const name = req.params.categories;
+  console.log(name)
+  try {
+    const result = await productsService.getRelatedProducts(name);
+    res.json({
+      data: result,
+    });
+  } catch (error) {}
+};
+
+const getMultipleRelatedProducts: RequestHandler = async (req, res) => {
+  const result = await productsService.getMultipleRelatedProducts(req.body);
+
+  res.json({
+    data: result,
+  });
+};
+
+const getProductsByName: RequestHandler = async (req, res) => {
+  const result = await productsService.getProductsByName(req.params.name);
+  res.json({
+    data: result,
+  });
+};
 export const productsController = {
   createProducts,
   getSingleProduct,
-  getAllProducts
+  getAllProducts,
+  getRelatedProducts,
+  getMultipleRelatedProducts,
+  getProductsByName
 };

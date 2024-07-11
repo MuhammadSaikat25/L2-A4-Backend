@@ -16,9 +16,10 @@ const getAllCategories = async (req: Request, res: Response) => {
 
 
 const getSingleCategories:RequestHandler=async(req,res)=>{
-  const id=req.params.id
+  const name=req.params.id
+
   try {
-    const result=await categoriesService.getSingleCategories(id)
+    const result=await categoriesService.getSingleCategories(name)
     res.status(200).json({
       success:true,
       message:"Categories has been found",
