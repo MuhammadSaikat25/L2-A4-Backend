@@ -6,4 +6,5 @@ export interface TProducts {
   categories: [string];
   section: string;
   description:string
+  availableQuantity?:number
 }

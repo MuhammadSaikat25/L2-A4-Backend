@@ -4,10 +4,18 @@ import cors from "cors";
 import { authRouter } from "./app/modules/Auth/Auth.route";
 import { productsRouter } from "./app/modules/Products/products.route";
 import { categoriesRoute } from "./app/modules/Categories/categories.route";
+import { cartRouter } from "./app/modules/Cart/cart.route";
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api", userRouter, authRouter, productsRouter, categoriesRoute);
+app.use(
+  "/api",
+  userRouter,
+  authRouter,
+  productsRouter,
+  categoriesRoute,
+  cartRouter
+);
 
 export default app;
