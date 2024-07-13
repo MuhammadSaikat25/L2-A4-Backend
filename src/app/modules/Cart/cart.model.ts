@@ -9,6 +9,9 @@ const CartSchema=new Schema<TCart>({
      image:String,
      name:String,
      price:Number
+},
+{
+    timestamps:true
 })
 
 
