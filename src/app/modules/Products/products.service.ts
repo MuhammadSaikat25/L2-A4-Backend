@@ -34,6 +34,24 @@ const getProductsByName = async (name: string) => {
   const result = await ProductsModel.findOne({ name: new RegExp(name, "i") });
   return result;
 };
+const updateProducts = async (id: string, playLoad: Partial<TProducts>) => {
+  const { name, price, image, quantity, section, description, categories } =
+    playLoad;
+  const result = await ProductsModel.findByIdAndUpdate(id, {
+    name,
+    price,
+    image,
+    quantity,
+    section,
+    description,
+    categories,
+  });
+  return result;
+};
+const deleteProducts=async(id:string)=>{
+  const result=await ProductsModel.findByIdAndDelete(id)
+  return result
+}
 export const productsService = {
   createProducts,
   getSingleProduct,
@@ -41,4 +59,6 @@ export const productsService = {
   getRelatedProducts,
   getMultipleRelatedProducts,
   getProductsByName,
+  updateProducts,
+  deleteProducts
 };

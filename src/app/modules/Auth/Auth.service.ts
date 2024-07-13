@@ -2,13 +2,20 @@ import { UserModel } from "../Users/user.model";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import config from "../../config";
+import { Response } from "express";
 
-const login = async (playLoad: { email: string; password: string }) => {
+const login = async (
+  playLoad: { email: string; password: string },
+  res: Response
+) => {
   const { email, password } = playLoad;
 
   const isUserExist = await UserModel.findOne({ email });
   if (!isUserExist) {
-    throw new Error("User does not found");
+    res.json({
+      message: "User does not found",
+    });
+    return;
   }
 
   const checkPassword = await bcrypt.compare(password, isUserExist.password);

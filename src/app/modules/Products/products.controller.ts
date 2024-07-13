@@ -44,7 +44,7 @@ const getAllProducts = async (req: Request, res: Response) => {
 
 const getRelatedProducts: RequestHandler = async (req, res) => {
   const name = req.params.categories;
-  console.log(name)
+  console.log(name);
   try {
     const result = await productsService.getRelatedProducts(name);
     res.json({
@@ -67,11 +67,35 @@ const getProductsByName: RequestHandler = async (req, res) => {
     data: result,
   });
 };
+
+const updateProducts: RequestHandler = async (req, res) => {
+  const id = req.params.id;
+  const data = req.body;
+  try {
+    const result = await productsService.updateProducts(id, data);
+    res.json({
+      data:result
+    })
+  } catch (error) {}
+};
+
+const deleteProducts:RequestHandler=async(req,res)=>{
+  try {
+    const result=await productsService.deleteProducts(req.params.id)
+    res.json({
+      data:result
+    })
+  } catch (error) {
+    
+  }
+}
 export const productsController = {
   createProducts,
   getSingleProduct,
   getAllProducts,
   getRelatedProducts,
   getMultipleRelatedProducts,
-  getProductsByName
+  getProductsByName,
+  updateProducts,
+  deleteProducts
 };

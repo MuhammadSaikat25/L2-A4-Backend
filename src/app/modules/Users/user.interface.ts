@@ -3,14 +3,6 @@ import { Model, Types } from "mongoose";
 export interface TUser {
   name: string;
   email: string;
-  order: [
-    {
-      productId: Types.ObjectId;
-      user: Types.ObjectId;
-      price: number;
-      quantity: number;
-    }
-  ];
   password: string;
   role: "user" | "admin";
   isDeleted: boolean;

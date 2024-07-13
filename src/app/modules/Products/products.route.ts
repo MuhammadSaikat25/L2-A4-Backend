@@ -14,4 +14,8 @@ router.get('/get-product/:id',productsController.getSingleProduct)
 router.get('/products',productsController.getAllProducts)
 router.get('/get-products/:name',productsController.getProductsByName)
 router.post('/get-Hello',productsController.getMultipleRelatedProducts)
+router.patch('/update-product/:id',productsController.updateProducts)
+router.delete('/delete-product/:id',productsController.deleteProducts)
+
+
 export const productsRouter = router;

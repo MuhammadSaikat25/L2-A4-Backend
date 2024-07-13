@@ -13,20 +13,6 @@ const UserSchema = new Schema<TUser>(
       enum: ["user", "admin"],
       default: "user",
     },
-    order: [
-      {
-        productId: {
-          type: Schema.Types.ObjectId,
-          ref: "products",
-        },
-        user: {
-          type: Schema.Types.ObjectId,
-          ref: "user",
-        },
-        price: Number,
-        quantity: Number,
-      },
-    ],
   },
   { timestamps: true }
 );
