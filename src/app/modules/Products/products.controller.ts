@@ -62,6 +62,7 @@ const getMultipleRelatedProducts: RequestHandler = async (req, res) => {
 };
 
 const getProductsByName: RequestHandler = async (req, res) => {
+ 
   const result = await productsService.getProductsByName(req.params.name);
   res.json({
     data: result,

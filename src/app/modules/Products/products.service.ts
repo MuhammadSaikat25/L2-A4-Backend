@@ -27,11 +27,10 @@ const getMultipleRelatedProducts = async (playLoad: Array<string>) => {
   const result = await ProductsModel.find({
     categories: { $in: playLoad },
   });
-
   return result;
 };
 const getProductsByName = async (name: string) => {
-  const result = await ProductsModel.findOne({ name: new RegExp(name, "i") });
+  const result = await ProductsModel.find({ name: new RegExp(name, "i") });
   return result;
 };
 const updateProducts = async (id: string, playLoad: Partial<TProducts>) => {
