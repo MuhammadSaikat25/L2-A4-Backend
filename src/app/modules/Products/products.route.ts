@@ -10,6 +10,7 @@ router.post(
   productsController.createProducts
 );
 router.get('/get-products/:categories',productsController.getRelatedProducts)
+router.get('/get-maxPrice',productsController.getMaxProductPrice)
 router.get('/get-product/:id',productsController.getSingleProduct)
 router.get('/products',productsController.getAllProducts)
 router.post('/get-products/:name',productsController.getProductsByName)

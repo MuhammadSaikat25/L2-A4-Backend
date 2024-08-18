@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { userRouter } from "./app/modules/Users/user.route";
 import cors from "cors";
 import { authRouter } from "./app/modules/Auth/Auth.route";
@@ -10,7 +10,9 @@ import { orderRouter } from "./app/modules/Orders/order.route";
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.get('/',(req:Request,res:Response)=>{
+  res.send('All Ok')
+})
 app.use(
   "/api",
   userRouter,

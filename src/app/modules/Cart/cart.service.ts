@@ -27,8 +27,8 @@ const getUserAllCart = async (user: string) => {
   return result;
 };
 
-const deleteCart = async (id: string) => {
-  const result = await CartModel.findByIdAndDelete(id);
+const deleteCart = async (id: string, user: string) => {
+  const result = await CartModel.findOneAndDelete({ user, _id: id });
   return result;
 };
 const incrementQuantity = async (id: string) => {

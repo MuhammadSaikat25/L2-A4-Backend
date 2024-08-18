@@ -10,27 +10,46 @@ const getSingleProduct = async (id: string) => {
   return result;
 };
 
-const getAllProducts = async () => {
-  const result = await ProductsModel.find();
+const getAllProducts = async (sort?: any) => {
+  let sortOption = {};
+
+  if (sort === "ascending") {
+    sortOption = { price: 1 };
+  } else if (sort === "descending") {
+    sortOption = { price: -1 };
+  }
+
+  const result = await ProductsModel.find().sort(sortOption);
   return result;
 };
 
-const getRelatedProducts = async (categories: string) => {
+const getRelatedProducts = async (categories: string, sort?: any) => {
+  let sortOption = {};
+
+  if (sort === "ascending") {
+    sortOption = { price: 1 };
+  } else if (sort === "descending") {
+    sortOption = { price: -1 };
+  }
+
   const result = await ProductsModel.find({
     categories: { $in: categories },
-  });
+  }).sort(sortOption);
 
   return result;
 };
 
 const getMultipleRelatedProducts = async (playLoad: Array<string>) => {
   const result = await ProductsModel.find({
-    categories: { $in: playLoad },
+    categories: { $in: [...playLoad] },
   });
+
   return result;
 };
+
 const getProductsByName = async (name: string) => {
   const result = await ProductsModel.find({ name: new RegExp(name, "i") });
+
   return result;
 };
 const updateProducts = async (id: string, playLoad: Partial<TProducts>) => {
@@ -47,10 +66,10 @@ const updateProducts = async (id: string, playLoad: Partial<TProducts>) => {
   });
   return result;
 };
-const deleteProducts=async(id:string)=>{
-  const result=await ProductsModel.findByIdAndDelete(id)
-  return result
-}
+const deleteProducts = async (id: string) => {
+  const result = await ProductsModel.findByIdAndDelete(id);
+  return result;
+};
 export const productsService = {
   createProducts,
   getSingleProduct,
@@ -59,5 +78,5 @@ export const productsService = {
   getMultipleRelatedProducts,
   getProductsByName,
   updateProducts,
-  deleteProducts
+  deleteProducts,
 };

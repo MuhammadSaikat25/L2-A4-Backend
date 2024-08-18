@@ -29,9 +29,10 @@ const getUserAllCart: RequestHandler = async (req, res) => {
   } catch (error) {}
 };
 const deleteCart: RequestHandler = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id
+  const user=req.params.user
   try {
-    const result = await cartService.deleteCart(id);
+    const result = await cartService.deleteCart(id,user);
     res.json({
       data: result,
     });

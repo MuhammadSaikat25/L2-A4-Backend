@@ -1,5 +1,6 @@
 import { Request, RequestHandler, Response } from "express";
 import { productsService } from "./products.service";
+import { ProductsModel } from "./products.model";
 
 const createProducts = async (req: Request, res: Response) => {
   const data = req.body;
@@ -30,8 +31,9 @@ const getSingleProduct = async (req: Request, res: Response) => {
 };
 
 const getAllProducts = async (req: Request, res: Response) => {
+  const { sort } = req.query;
   try {
-    const result = await productsService.getAllProducts();
+    const result = await productsService.getAllProducts(sort);
     res.status(200).json({
       success: true,
       message: "Products has been found",
@@ -44,9 +46,9 @@ const getAllProducts = async (req: Request, res: Response) => {
 
 const getRelatedProducts: RequestHandler = async (req, res) => {
   const name = req.params.categories;
-  console.log(name);
+  const { sort } = req.query;
   try {
-    const result = await productsService.getRelatedProducts(name);
+    const result = await productsService.getRelatedProducts(name, sort);
     res.json({
       data: result,
     });
@@ -55,14 +57,12 @@ const getRelatedProducts: RequestHandler = async (req, res) => {
 
 const getMultipleRelatedProducts: RequestHandler = async (req, res) => {
   const result = await productsService.getMultipleRelatedProducts(req.body);
-
   res.json({
     data: result,
   });
 };
 
 const getProductsByName: RequestHandler = async (req, res) => {
- 
   const result = await productsService.getProductsByName(req.params.name);
   res.json({
     data: result,
@@ -75,20 +75,26 @@ const updateProducts: RequestHandler = async (req, res) => {
   try {
     const result = await productsService.updateProducts(id, data);
     res.json({
-      data:result
-    })
+      data: result,
+    });
   } catch (error) {}
 };
 
-const deleteProducts:RequestHandler=async(req,res)=>{
+const deleteProducts: RequestHandler = async (req, res) => {
   try {
-    const result=await productsService.deleteProducts(req.params.id)
+    const result = await productsService.deleteProducts(req.params.id);
     res.json({
-      data:result
-    })
-  } catch (error) {
-    
-  }
+      data: result,
+    });
+  } catch (error) {}
+};
+
+const getMaxProductPrice:RequestHandler=async (req, res)=>{
+  const products=await ProductsModel.find()
+  const maxPrice=Math.max(...products?.map((product: any) => product?.price))
+  res.json({
+    maxPrice
+  })
 }
 export const productsController = {
   createProducts,
@@ -98,5 +104,6 @@ export const productsController = {
   getMultipleRelatedProducts,
   getProductsByName,
   updateProducts,
-  deleteProducts
+  deleteProducts,
+  getMaxProductPrice
 };
